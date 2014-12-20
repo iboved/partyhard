@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="party")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PartyRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
 class Party
@@ -52,6 +52,11 @@ class Party
     private $donate;
 
     /**
+     * @ORM\Column(name="active", type="string", length=255)
+     */
+    private $active;
+
+    /**
      * @ORM\Column(name="created_at", type="datetime")
      * @Gedmo\Timestampable(on="create")
      */
@@ -69,13 +74,14 @@ class Party
     private $deletedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="party", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="User", mappedBy="party")
      */
     private $users;
 
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->active = 'true';
     }
 
     /**
@@ -326,5 +332,28 @@ class Party
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * Set active
+     *
+     * @param string $active
+     * @return Party
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return string 
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

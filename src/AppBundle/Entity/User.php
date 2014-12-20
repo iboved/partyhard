@@ -25,7 +25,7 @@ class User
     protected $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="phone", type="string", length=255)
      * @Assert\NotBlank()
      */
     protected $phone;
@@ -43,7 +43,7 @@ class User
     protected $gender;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Party", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Party", inversedBy="users", cascade={"persist"})
      * @ORM\JoinColumn(name="party_id", referencedColumnName="id")
      */
     private $party;

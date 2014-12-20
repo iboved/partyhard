@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "base.html.twig" %}
 {% block head %}
     <title>{% block title 'Add Party' %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
         <div class="active">
             {{ form_label(form.gender) }}
             {{ form_errors(form.gender) }}
-            {{ form_widget(form.gender, {'attr': {'class': 'gender'}}) }}
+            {{ form_widget(form.gender) }}
         </div>
         <br/>
         <div class="active">
@@ -37,15 +37,21 @@
         </div>
         <br/>
         <div class="active">
+            {{ form_label(form.party.description) }}
+            {{ form_errors(form.party.description) }}
+            {{ form_widget(form.party.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <br/>
+        <div class="active">
             {{ form_label(form.party.city) }}
             {{ form_errors(form.party.city) }}
             {{ form_widget(form.party.city, {'attr': {'class': 'form-control'}}) }}
         </div>
         <br/>
         <div class="active">
-            {{ form_label(form.party.description) }}
-            {{ form_errors(form.party.description) }}
-            {{ form_widget(form.party.description, {'attr': {'class': 'form-control'}}) }}
+            {{ form_label(form.party.gender) }}
+            {{ form_errors(form.party.gender) }}
+            {{ form_widget(form.party.gender) }}
         </div>
         <br/>
         <div class="active">
