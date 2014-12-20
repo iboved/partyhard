@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/iboved/partyhard.svg?branch=develop)](https://travis-ci.org/iboved/partyhard)
+
 Symfony Standard Edition
 ========================
 
