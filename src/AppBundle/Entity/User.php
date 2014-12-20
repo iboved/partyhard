@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="product")
+ * @ORM\Table(name="user")
  */
 class User
 {
@@ -41,6 +41,13 @@ class User
      * @Assert\NotBlank()
      */
     protected $gender;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Party", inversedBy="users")
+     * @ORM\JoinColumn(name="party_id", referencedColumnName="id")
+     */
+    private $party;
+
     /**
      * Get id
      *
@@ -73,6 +80,7 @@ class User
     {
         return $this->name;
     }
+
     /**
      * Set phone
      *
@@ -140,5 +148,28 @@ class User
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Set party
+     *
+     * @param \AppBundle\Entity\Party $party
+     * @return User
+     */
+    public function setParty(\AppBundle\Entity\Party $party = null)
+    {
+        $this->party = $party;
+
+        return $this;
+    }
+
+    /**
+     * Get party
+     *
+     * @return \AppBundle\Entity\Party 
+     */
+    public function getParty()
+    {
+        return $this->party;
     }
 }
