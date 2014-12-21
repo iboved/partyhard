@@ -11,7 +11,7 @@
             </p>
             <div class="jumbotron">
                 <h2>Welcome!</h2>
-                <p>Description.</p>
+                <p>This service help you find yourself a party for the New Year</p>
             </div>
             <div class="row">
                 {% for party in parties %}
@@ -28,8 +28,8 @@
         </div><!--/.col-xs-12 col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
             <div class="list-group">
-                {% for city in allParties|unique %}
-                <a href="{{ path('party') }}?city={{ city|lower }}" class="list-group-item">{{ city }}</a>
+                {% for city in cities %}
+                <a href="{{ path('party') }}?city={{ city.city|lower }}" class="list-group-item">{{ city.city }}</a>
                 {% endfor %}
             </div>
         </div><!--/.sidebar-offcanvas-->

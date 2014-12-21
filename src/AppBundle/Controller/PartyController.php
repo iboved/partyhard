@@ -45,15 +45,15 @@ class PartyController extends Controller
      */
     public function newAction(Request $request)
     {
-        $party = new User();
+        $user = new User();
 
-        $form = $this->createForm(new AddUserType(), $party);
+        $form = $this->createForm(new AddUserType(), $user);
 
         $form->handleRequest($request);
 
         if($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($party);
+            $em->persist($user);
             $em->flush();
 
             return $this->redirect($this->generateUrl('homepage'));

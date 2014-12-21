@@ -18,15 +18,13 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Party')
             ->findBy([], ['id' => 'DESC'], 3);
 
-        $allParties = $this->getDoctrine()
+        $cities = $this->getDoctrine()
             ->getRepository('AppBundle:Party')
-            ->findAll();
-
-        //dump($cities);
+            ->findUniqueCities();
 
         return $this->render('default/index.html.twig', array(
             "parties" =>  $parties,
-            "allParties" => $allParties)
+            "cities" => $cities)
         );
     }
 }
