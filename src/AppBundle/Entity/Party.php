@@ -74,6 +74,12 @@ class Party
     private $deletedAt;
 
     /**
+     * @ORM\Column(name="slug", type="string", length=255)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $slug;
+
+    /**
      * @ORM\OneToMany(targetEntity="User", mappedBy="party")
      */
     private $users;
@@ -355,5 +361,28 @@ class Party
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Party
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

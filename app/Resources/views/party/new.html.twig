@@ -1,73 +1,76 @@
 {% extends "base.html.twig" %}
-{% block head %}
-    <title>{% block title 'Add Party' %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block title %}New party{% endblock %}
+
+{% block container %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <legend>New user</legend>
+    <div class="active">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.gender) }}
+        {{ form_errors(form.gender) }}
+        {{ form_widget(form.gender) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.phone) }}
+        {{ form_errors(form.phone) }}
+        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <legend>Create party</legend>
+    <div class="active">
+        {{ form_label(form.party.title) }}
+        {{ form_errors(form.party.title) }}
+        {{ form_widget(form.party.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.party.description) }}
+        {{ form_errors(form.party.description) }}
+        {{ form_widget(form.party.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.party.city) }}
+        {{ form_errors(form.party.city) }}
+        {{ form_widget(form.party.city, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.party.gender) }}
+        {{ form_errors(form.party.gender) }}
+        {{ form_widget(form.party.gender) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.party.count) }}
+        {{ form_errors(form.party.count) }}
+        {{ form_widget(form.party.count, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.party.donate) }}
+        {{ form_errors(form.party.donate) }}
+        {{ form_widget(form.party.donate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    {{ form_end(form) }}
 {% endblock %}
-    {% block container %}
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div class="active">
-            {{ form_label(form.name) }}
-            {{ form_errors(form.name) }}
-            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.gender) }}
-            {{ form_errors(form.gender) }}
-            {{ form_widget(form.gender) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.email) }}
-            {{ form_errors(form.email) }}
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.phone) }}
-            {{ form_errors(form.phone) }}
-            {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.title) }}
-            {{ form_errors(form.party.title) }}
-            {{ form_widget(form.party.title, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.description) }}
-            {{ form_errors(form.party.description) }}
-            {{ form_widget(form.party.description, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.city) }}
-            {{ form_errors(form.party.city) }}
-            {{ form_widget(form.party.city, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.gender) }}
-            {{ form_errors(form.party.gender) }}
-            {{ form_widget(form.party.gender) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.count) }}
-            {{ form_errors(form.party.count) }}
-            {{ form_widget(form.party.count, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_label(form.party.donate) }}
-            {{ form_errors(form.party.donate) }}
-            {{ form_widget(form.party.donate, {'attr': {'class': 'form-control'}}) }}
-        </div>
-        <br/>
-        <div class="active">
-            {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
-        </div>
-        {{ form_end(form) }}
-    {% endblock %}

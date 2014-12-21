@@ -61,4 +61,25 @@ class PartyController extends Controller
 
         return $this->render('party/new.html.twig', array('form' => $form->createView()));
     }
+
+    /**
+     * @Route("/party/{slug}", name="viewparty")
+     * @Method({"GET","POST"})
+     */
+    public function viewAction($slug)
+    {
+        $party = $this->getDoctrine()
+            ->getRepository('AppBundle:Party')
+            ->findOneBySlug($slug);
+
+        dump($party);
+
+        if (!$party) {
+            throw $this->createNotFoundException(
+                'No party found for slug ' . $slug
+            );
+        }
+
+        return $this->render('party/view.html.twig', array('party' => $party));
+    }
 }
