@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
         $parties = $this->getDoctrine()
             ->getRepository('AppBundle:Party')
-            ->findBy([], ['id' => 'DESC'], 6);
+            ->findBy(['active' => 'true'], ['id' => 'DESC'], 6);
 
         $cities = $this->getDoctrine()
             ->getRepository('AppBundle:Party')

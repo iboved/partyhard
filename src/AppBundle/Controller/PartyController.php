@@ -56,7 +56,6 @@ class PartyController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
             return $this->redirect($this->generateUrl('homepage'));
         }
 
@@ -78,9 +77,14 @@ class PartyController extends Controller
                 'No party found for slug ' . $slug
             );
         }
-
         $users = $party->getUsers()->getValues();
-
+        $members = $party->getMembers();
+        if(count($users)==$members){
+            $manager = $this->getDoctrine()->getManager();
+            $party->setActive('false');
+            $manager->persist($party);
+            $manager->flush();
+        }
         $user = new User();
 
         $form = $this->createForm(new JoinPartyType(), $user);
