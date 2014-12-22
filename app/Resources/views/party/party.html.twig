@@ -17,7 +17,7 @@
                         <p>City: {{ party.city }} </p>
                         <p>Gender: {{ party.gender }} </p>
                         <p>Members: {{ party.users|length }}/{{ party.members }} </p>
-                        <p><a class="btn btn-default" href="{{ path('viewparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
+                        <p><a class="btn btn-default" href="{{ path('joinparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
                     </div><!--/.col-xs-4 col-lg-4-->
                 {% endfor %}
             </div><!--/row-->

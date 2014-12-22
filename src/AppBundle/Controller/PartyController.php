@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
+use AppBundle\Form\Type\JoinPartyType;
 use AppBundle\Form\Type\AddUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -63,16 +64,14 @@ class PartyController extends Controller
     }
 
     /**
-     * @Route("/party/{slug}", name="viewparty")
+     * @Route("/party/{slug}", name="joinparty")
      * @Method({"GET","POST"})
      */
-    public function viewAction($slug)
+    public function joinAction(Request $request, $slug)
     {
         $party = $this->getDoctrine()
             ->getRepository('AppBundle:Party')
             ->findOneBySlug($slug);
-        
-        $users = $party->getUsers()->getValues();
 
         if (!$party) {
             throw $this->createNotFoundException(
@@ -80,9 +79,27 @@ class PartyController extends Controller
             );
         }
 
-        return $this->render('party/view.html.twig', array(
+        $users = $party->getUsers()->getValues();
+
+        $user = new User();
+
+        $form = $this->createForm(new JoinPartyType(), $user);
+
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $user->setParty($party);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('joinparty', ['slug' => $slug]));
+        }
+
+        return $this->render('party/join.html.twig', array(
             'party' => $party,
-            'users' => $users)
-        );
+            'users' => $users,
+            'form' => $form->createView(),
+        ));
     }
 }
