@@ -5,6 +5,7 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\Range;
 
 class AddPartyType extends AbstractType
 {
@@ -21,8 +22,8 @@ class AddPartyType extends AbstractType
                     'f' => 'Female'),
                 'label' => 'Needed gender'
             ))
-            ->add('members')
-            ->add('donate');
+            ->add('members','number',array('constraints' => array(new Range(array('min'=>2)))))
+            ->add('donate','number',array('constraints' => array(new Range(array('min'=>0)))));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
