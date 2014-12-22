@@ -23,36 +23,45 @@ class Party
 
     /**
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank()
      */
     private $description;
 
     /**
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $city;
 
     /**
      * @ORM\Column(name="gender", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $gender;
 
     /**
      * @ORM\Column(name="members", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Range(min = 2)
      */
     private $members;
 
     /**
      * @ORM\Column(name="donate", type="integer")
+     * @Assert\NotBlank()
+     * @Assert\Range(min = 0)
      */
     private $donate;
 
     /**
      * @ORM\Column(name="active", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $active;
 
