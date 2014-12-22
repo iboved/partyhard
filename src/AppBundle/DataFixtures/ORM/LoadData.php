@@ -23,8 +23,8 @@ class LoadData implements FixtureInterface
         $party1->setDonate(250);
 
         $party2 = new Party();
-        $party2->setTitle('Beautiful night');
-        $party2->setDescription('Wow! it is We have fun. Unforgettable event. Waiting for you.');
+        $party2->setTitle('Incredible party');
+        $party2->setDescription('Wow! We have fun. Unforgettable event. Waiting for you.');
         $party2->setCity('Kyiv');
         $party2->setGender('female');
         $party2->setMembers(4);
