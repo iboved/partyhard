@@ -5,8 +5,9 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
-use AppBundle\Form\Type\JoinPartyType;
+use AppBundle\Entity\Party;
 use AppBundle\Form\Type\AddUserType;
+use AppBundle\Form\Type\JoinPartyType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
@@ -67,18 +68,9 @@ class PartyController extends Controller
      * @Route("/parties/{slug}", name="joinparty")
      * @Method({"GET","POST"})
      */
-    public function joinAction(Request $request, $slug)
+    public function joinAction(Request $request, Party $party, $slug)
     {
-        $party = $this->getDoctrine()
-            ->getRepository('AppBundle:Party')
-            ->findOneBySlug($slug);
-
-        if (!$party) {
-            throw $this->createNotFoundException(
-                'No party found for slug ' . $slug
-            );
-        }
-
+        dump($party);
         $user = new User();
 
         $form = $this->createForm(new JoinPartyType($party), $user);
