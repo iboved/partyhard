@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class PartyController extends Controller
 {
     /**
-     * @Route("/party", name="party")
+     * @Route("/parties", name="parties")
      * @Method({"GET"})
      */
     public function partyAction(Request $request)
@@ -32,7 +32,7 @@ class PartyController extends Controller
             $parties = $this->getDoctrine()
                 ->getRepository('AppBundle:Party')
                 ->findBy(
-                    array('active' => $active, 'city' => $city),
+                    array('city' => $city),
                     array('id' => 'DESC')
                 );
         }
@@ -41,7 +41,7 @@ class PartyController extends Controller
     }
 
     /**
-     * @Route("/party/new", name="newparty")
+     * @Route("/parties/new", name="newparty")
      * @Method({"GET","POST"})
      */
     public function newAction(Request $request)
@@ -56,6 +56,7 @@ class PartyController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
             return $this->redirect($this->generateUrl('homepage'));
         }
 
@@ -63,7 +64,7 @@ class PartyController extends Controller
     }
 
     /**
-     * @Route("/party/{slug}", name="joinparty")
+     * @Route("/parties/{slug}", name="joinparty")
      * @Method({"GET","POST"})
      */
     public function joinAction(Request $request, $slug)
@@ -77,14 +78,7 @@ class PartyController extends Controller
                 'No party found for slug ' . $slug
             );
         }
-        $users = $party->getUsers()->getValues();
-        $members = $party->getMembers();
-        if(count($users)==$members){
-            $manager = $this->getDoctrine()->getManager();
-            $party->setActive('false');
-            $manager->persist($party);
-            $manager->flush();
-        }
+
         $user = new User();
 
         $form = $this->createForm(new JoinPartyType(), $user);
@@ -92,9 +86,7 @@ class PartyController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()) {
-            $user->setParty($party);
             $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
             $em->flush();
 
             return $this->redirect($this->generateUrl('joinparty', ['slug' => $slug]));
@@ -102,7 +94,6 @@ class PartyController extends Controller
 
         return $this->render('party/join.html.twig', array(
             'party' => $party,
-            'users' => $users,
             'form' => $form->createView(),
         ));
     }

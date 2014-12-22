@@ -18,7 +18,7 @@
                     <div class="col-xs-6 col-lg-4">
                         <h2> {{ party.title }} </h2>
                         <p> {{ party.description|slice(0, 195) }} </p>
-                        <p>City: <a href="{{ path('party') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
+                        <p>City: <a href="{{ path('parties') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
                         <p>Gender: {{ party.gender }} </p>
                         <p>Members: {{ party.users|length }}/{{ party.members }} </p>
                         <p><a class="btn btn-default" href="{{ path('joinparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
@@ -29,7 +29,7 @@
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
             <div class="list-group">
                 {% for city in cities %}
-                    <a href="{{ path('party') }}?city={{ city.city|lower }}" class="list-group-item">{{ city.city }}</a>
+                    <a href="{{ path('parties') }}?city={{ city.city|lower }}" class="list-group-item">{{ city.city }}</a>
                 {% endfor %}
             </div>
         </div><!--/.sidebar-offcanvas-->
