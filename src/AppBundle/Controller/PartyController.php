@@ -72,7 +72,7 @@ class PartyController extends Controller
             ->getRepository('AppBundle:Party')
             ->findOneBySlug($slug);
 
-        dump($party);
+        $users = $party->getUsers()->getValues();
 
         if (!$party) {
             throw $this->createNotFoundException(
@@ -80,6 +80,9 @@ class PartyController extends Controller
             );
         }
 
-        return $this->render('party/view.html.twig', array('party' => $party));
+        return $this->render('party/view.html.twig', array(
+            'party' => $party,
+            'users' => $users)
+        );
     }
 }

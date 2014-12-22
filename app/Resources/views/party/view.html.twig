@@ -11,15 +11,18 @@
             <p> {{ party.description }} </p>
             <p>City: {{ party.city }} </p>
             <p>Needed gender: {{ party.gender }} </p>
-            <p>Max members: {{ party.members }} </p>
+            <p>Members: {{ party.members }} </p>
             <p>Donate: {{ party.donate }} </p>
             <p>Created: {{ party.createdAt|date }} </p>
             <p>Last update: {{ party.updatedAt|date }} </p>
-            <hr>
-            <h4>Members</h4>
             <div align="right">
                 <a href="#">Go!!!</a>
             </div>
+            <hr>
+            <h4>Members</h4>
+            {% for user in users %}
+                <p>{{ user.name }}</p>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
