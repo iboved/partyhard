@@ -81,12 +81,13 @@ class PartyController extends Controller
 
         $user = new User();
 
-        $form = $this->createForm(new JoinPartyType(), $user);
+        $form = $this->createForm(new JoinPartyType($party), $user);
 
         $form->handleRequest($request);
 
         if($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
             $em->flush();
 
             return $this->redirect($this->generateUrl('joinparty', ['slug' => $slug]));
