@@ -17,10 +17,10 @@
                 {% for party in parties %}
                     <div class="col-xs-6 col-lg-4">
                         <h2> {{ party.title }} </h2>
-                        <p> {{ party.description|slice(0, 195) }}... </p>
-                        <p>City: {{ party.city }} </p>
+                        <p> {{ party.description|slice(0, 195) }} </p>
+                        <p>City: <a href="{{ path('party') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
                         <p>Gender: {{ party.gender }} </p>
-                        <p>Members: {{ party.count }} </p>
+                        <p>Members: {{ party.members }} </p>
                         <p><a class="btn btn-default" href="{{ path('viewparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
                     </div><!--/.col-xs-6 col-lg-4-->
                 {% endfor %}

@@ -42,9 +42,9 @@ class Party
     private $gender;
 
     /**
-     * @ORM\Column(name="count", type="integer")
+     * @ORM\Column(name="members", type="integer")
      */
-    private $count;
+    private $members;
 
     /**
      * @ORM\Column(name="donate", type="integer")
@@ -190,29 +190,6 @@ class Party
     public function getGender()
     {
         return $this->gender;
-    }
-
-    /**
-     * Set count
-     *
-     * @param integer $count
-     * @return Party
-     */
-    public function setCount($count)
-    {
-        $this->count = $count;
-
-        return $this;
-    }
-
-    /**
-     * Get count
-     *
-     * @return integer 
-     */
-    public function getCount()
-    {
-        return $this->count;
     }
 
     /**
@@ -384,5 +361,28 @@ class Party
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set members
+     *
+     * @param integer $members
+     * @return Party
+     */
+    public function setMembers($members)
+    {
+        $this->members = $members;
+
+        return $this;
+    }
+
+    /**
+     * Get members
+     *
+     * @return integer 
+     */
+    public function getMembers()
+    {
+        return $this->members;
     }
 }

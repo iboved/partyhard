@@ -21,7 +21,7 @@ class AddPartyType extends AbstractType
                     'f' => 'Female'),
                 'label' => 'Needed gender'
             ))
-            ->add('count')
+            ->add('members')
             ->add('donate');
     }
 

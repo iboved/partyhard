@@ -19,7 +19,7 @@ class LoadData implements FixtureInterface
         $party1->setDescription('Awesome! Join us. We have fun. Incredibly cool party.');
         $party1->setCity('Cherkasy');
         $party1->setGender('any');
-        $party1->setCount(3);
+        $party1->setMembers(3);
         $party1->setDonate(250);
 
         $party2 = new Party();
@@ -27,7 +27,7 @@ class LoadData implements FixtureInterface
         $party2->setDescription('Wow! it is We have fun. Unforgettable event. Waiting for you.');
         $party2->setCity('Kyiv');
         $party2->setGender('female');
-        $party2->setCount(4);
+        $party2->setMembers(4);
         $party2->setDonate(125);
 
         $user1 = new User();
