@@ -71,7 +71,7 @@ class PartyController extends Controller
         $party = $this->getDoctrine()
             ->getRepository('AppBundle:Party')
             ->findOneBySlug($slug);
-
+        
         $users = $party->getUsers()->getValues();
 
         if (!$party) {

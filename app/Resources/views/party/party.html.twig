@@ -16,8 +16,8 @@
                         <p> {{ party.description|slice(0, 195) }}... </p>
                         <p>City: {{ party.city }} </p>
                         <p>Gender: {{ party.gender }} </p>
-                        <p>Members: {{ party.members }} </p>
-                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        <p>Members: {{ party.users|length }}/{{ party.members }} </p>
+                        <p><a class="btn btn-default" href="{{ path('viewparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
                     </div><!--/.col-xs-4 col-lg-4-->
                 {% endfor %}
             </div><!--/row-->
