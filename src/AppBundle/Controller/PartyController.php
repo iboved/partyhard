@@ -77,7 +77,7 @@ class PartyController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()) {
-            if($party->getActive() !== 'false') {
+            if($party->getActive() == 'true') {
                 $this->get('app.party_handler')->checkActive($party);
 
                 $em = $this->getDoctrine()->getManager();
