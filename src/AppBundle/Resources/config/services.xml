@@ -11,5 +11,9 @@
     <services>
         <service id="app.party_handler" class="%app.party_handler.class%">
         </service>
+
+        <service id="app.twig.price_extension" class="AppBundle\Twig\PriceExtension">
+            <tag name="twig.extension" />
+        </service>
     </services>
 </container>

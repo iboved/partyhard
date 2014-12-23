@@ -17,7 +17,7 @@
                             <p>City: {{ party.city }} </p>
                             <p>Needed gender: {{ party.gender }} </p>
                             <p>Members: {{ party.users|length }}/{{ party.members }} </p>
-                            <p>Donate: {{ party.donate }} </p>
+                            <p>Donate: {{ party.donate|price }} </p>
                             <p>Created: {{ party.createdAt|date }} </p>
                             <hr>
                             <table class="table table-hover">
