@@ -10,7 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Table(name="party")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartyRepository")
- * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
 class Party
 {
@@ -70,17 +69,6 @@ class Party
      * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
-
-    /**
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     * @Gedmo\Timestampable(on="update")
-     */
-    private $updatedAt;
-
-    /**
-     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
-     */
-    private $deletedAt;
 
     /**
      * @ORM\Column(name="slug", type="string", length=255)
@@ -278,52 +266,6 @@ class Party
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Party
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set deletedAt
-     *
-     * @param \DateTime $deletedAt
-     * @return Party
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get deletedAt
-     *
-     * @return \DateTime 
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
     }
 
     /**

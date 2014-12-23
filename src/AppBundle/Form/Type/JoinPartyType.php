@@ -5,8 +5,7 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
+use AppBundle\Form\EventListener\AddGenderFieldSubscriber;
 use AppBundle\Entity\Party;
 
 class JoinPartyType extends AbstractType
@@ -23,12 +22,11 @@ class JoinPartyType extends AbstractType
         $options['data']->setParty($this->party);
 
         $builder
-            ->add('name')
-            ->add('gender', 'choice', array(
-                'choices' => array(
-                    'male' => 'Male',
-                    'female' => 'Female')
-            ))
+            ->add('name');
+
+        $builder->addEventSubscriber(new AddGenderFieldSubscriber());
+
+        $builder
             ->add('email','email')
             ->add('phone')
             ->add('send', 'submit');
