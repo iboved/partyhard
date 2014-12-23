@@ -16,7 +16,7 @@
     <div class="active">
         {{ form_label(form.gender) }}
         {{ form_errors(form.gender) }}
-        {{ form_widget(form.gender) }}
+        {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
     </div>
     <br/>
     <div class="active">
@@ -53,7 +53,7 @@
     <div class="active">
         {{ form_label(form.party.gender) }}
         {{ form_errors(form.party.gender) }}
-        {{ form_widget(form.party.gender) }}
+        {{ form_widget(form.party.gender, {'attr': {'class': 'form-control'}}) }}
     </div>
     <br/>
     <div class="active">

@@ -22,8 +22,8 @@ class AddPartyType extends AbstractType
                     'female' => 'Female'),
                 'label' => 'Needed gender'
             ))
-            ->add('members','number',array('constraints' => array(new Range(array('min'=>2)))))
-            ->add('donate','number',array('constraints' => array(new Range(array('min'=>0)))));
+            ->add('members', null, array('constraints' => array(new Range(array('min'=>2)))))
+            ->add('donate', null, array('constraints' => array(new Range(array('min'=>0)))));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

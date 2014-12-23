@@ -5,6 +5,8 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use AppBundle\Entity\Party;
 
 class JoinPartyType extends AbstractType
@@ -18,6 +20,8 @@ class JoinPartyType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $options['data']->setParty($this->party);
+
         $builder
             ->add('name')
             ->add('gender', 'choice', array(
@@ -28,8 +32,6 @@ class JoinPartyType extends AbstractType
             ->add('email','email')
             ->add('phone')
             ->add('send', 'submit');
-
-        $options['data']->setParty($this->party);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

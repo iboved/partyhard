@@ -70,7 +70,6 @@ class PartyController extends Controller
      */
     public function joinAction(Request $request, Party $party, $slug)
     {
-        dump($party);
         $user = new User();
 
         $form = $this->createForm(new JoinPartyType($party), $user);
@@ -78,9 +77,13 @@ class PartyController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            if($party->getActive() !== 'false') {
+                $this->get('app.party_handler')->checkActive($party);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+            }
 
             return $this->redirect($this->generateUrl('joinparty', ['slug' => $slug]));
         }
