@@ -25,8 +25,7 @@ party:
     view_details: View details
     new_user: New user
 
-another:
-    jumbotron: This service helps you find a party for the New Year. You can create your own party and share it with people all around the world.
+jumbotron: This service helps you find a party for the New Year. You can create your own party and share it with people all around the world.
 
 Name: Name
 Gender: Gender
