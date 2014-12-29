@@ -14,7 +14,7 @@ title:
 
 party:
     city: City
-    needed_gender: Needed gender
+    desired_sex: Desired sex
     members: Members
     donate: Donate
     created_at: Created at
@@ -33,7 +33,7 @@ Phone: Phone
 Title: Title
 Description: Description
 City: City
-Needed gender: Needed gender
+Desired sex: Desired sex
 Members: Members
 Donate: Donate
 Send: Send

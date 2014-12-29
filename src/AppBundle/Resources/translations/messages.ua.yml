@@ -1,0 +1,42 @@
+navbar:
+    new_party: Нова вечірка
+    active_party: Активні
+    not_active_party: Неактивні
+    languages: Мови
+
+title:
+    home_page: Ласкаво просимо | PartyHard
+    new_party: Нова вечірка
+    parties_city: Вечірки в місті
+    active_parties: Активні вечірки
+    not_active_parties: Неактивні вечірки
+    join_party: Долучитись до
+
+party:
+    city: Місто
+    desired_sex: Бажана стать
+    members: Учасники
+    donate: Внесок
+    created_at: Дата створення
+    members_of_party: Учасники вечірки
+    member_name: Ім'я
+    member_gender: Стать
+    join_party: Долучитись
+    view_details: Докладніше
+    new_user: Новий користувач
+
+jumbotron: Цей сервіс допоможе Вам знайти вечірку на Новий Рік. Ви можете створити свою вечірку і поділитися нею з усім світом.
+
+Name: Ім'я
+Gender: Стать
+Phone: Телефон
+Title: Назва
+Description: Опис
+City: Місто
+Desired sex: Бажана стать
+Members: Учасники
+Donate: Внесок
+Send: Відправити
+male: чоловіча
+female: жіноча
+any: будь-яка

@@ -20,7 +20,7 @@ class AddPartyType extends AbstractType
                     'any' => 'any',
                     'male' => 'male',
                     'female' => 'female'),
-                'label' => 'Needed gender'
+                'label' => 'Desired sex'
             ))
             ->add('members', null, array('constraints' => array(new Range(array('min'=>2)))))
             ->add('donate', null, array('constraints' => array(new Range(array('min'=>0)))));

@@ -24,7 +24,7 @@
                         <h2> {{ party.title }} </h2>
                         <p> {{ party.description|slice(0, 195) }} </p>
                         <p>{{ 'party.city'|trans }}: <a href="{{ path('parties') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
-                        <p>{{ 'party.needed_gender'|trans }}: {{ party.gender|trans }} </p>
+                        <p>{{ 'party.desired_sex'|trans }}: {{ party.gender|trans }} </p>
                         <p>{{ 'party.members'|trans }}: {{ party.users|length }}/{{ party.members }} </p>
                         <p><a class="btn btn-default" href="{{ path('joinparty', {'slug' : party.slug}) }}" role="button">{{ 'party.view_details'|trans }} &raquo;</a></p>
                     </div><!--/.col-xs-4 col-lg-4-->

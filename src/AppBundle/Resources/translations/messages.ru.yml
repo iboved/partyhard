@@ -14,7 +14,7 @@ title:
 
 party:
     city: Город
-    needed_gender: Необходимый пол
+    desired_sex: Желательный пол
     members: Участники
     donate: Вклад
     created_at: Дата создания
@@ -22,7 +22,7 @@ party:
     member_name: Имя
     member_gender: Пол
     join_party: Присоединиться
-    view_details: Узнать подробнее
+    view_details: Подробнее
     new_user: Новый пользователь
 
 jumbotron: Этот сервис поможет Вам найти вечерику на Новый Год. Вы можете создать свою вечеринку и поделиться ею со всем миром.
@@ -33,7 +33,7 @@ Phone: Телефон
 Title: Название
 Description: Описание
 City: Город
-Needed gender: Необходимый пол
+Desired sex: Желательный пол
 Members: Участники
 Donate: Вклад
 Send: Отправить
