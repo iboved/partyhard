@@ -13,10 +13,10 @@
                             <h2> {{ party.title }} </h2>
                             <p> {{ party.description }} </p>
                             <p>{{ 'party.city'|trans }}: {{ party.city }} </p>
-                            <p>{{ 'party.needed_gender'|trans }}: {{ party.gender }} </p>
+                            <p>{{ 'party.needed_gender'|trans }}: {{ party.gender|trans }} </p>
                             <p>{{ 'party.members'|trans }}: {{ party.users|length }}/{{ party.members }} </p>
                             <p>{{ 'party.donate'|trans }}: {{ party.donate|price }} </p>
-                            <p>{{ 'party.created_at'|trans }}: {{ party.createdAt|date }} </p>
+                            <p>{{ 'party.created_at'|trans }}: {{ party.createdAt|date("d.m.Y H:i") }} </p>
                             <hr>
                             <table class="table table-hover">
                                 <caption>{{ 'party.members_of_party'|trans }}</caption>
@@ -33,7 +33,7 @@
                                     <tr>
                                         <td>{{ loop.index }}</td>
                                         <td>{{ user.name }}</td>
-                                        <td>{{ user.gender }}</td>
+                                        <td>{{ user.gender|trans }}</td>
                                         <td>{{ user.email }}</td>
                                     </tr>
                                 {% endfor %}
@@ -54,7 +54,6 @@
                             {{ form_start(form) }}
                             {{ form_errors(form) }}
 
-                            <legend>New user</legend>
                             <div class="active">
                                 {{ form_label(form.name) }}
                                 {{ form_errors(form.name) }}

@@ -1,5 +1,4 @@
 navbar:
-    home: Home
     new_party: New party
     active_party: Active
     not_active_party: Not active
@@ -24,6 +23,21 @@ party:
     member_gender: Gender
     join_party: Join party
     view_details: View details
+    new_user: New user
 
 another:
     jumbotron: This service helps you find a party for the New Year. You can create your own party and share it with people all around the world.
+
+Name: Name
+Gender: Gender
+Phone: Phone
+Title: Title
+Description: Description
+City: City
+Needed gender: Needed gender
+Members: Members
+Donate: Donate
+Send: Send
+male: male
+female: female
+any: any

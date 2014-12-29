@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class PartyController extends Controller
 {
     /**
-     * @Route("/parties", name="parties")
+     * @Route("/{_locale}/parties", name="parties")
      * @Method({"GET"})
      */
     public function partyAction(Request $request)
@@ -42,7 +42,7 @@ class PartyController extends Controller
     }
 
     /**
-     * @Route("/parties/new", name="newparty")
+     * @Route("/{_locale}/parties/new", name="newparty")
      * @Method({"GET","POST"})
      */
     public function newAction(Request $request)
@@ -65,8 +65,8 @@ class PartyController extends Controller
     }
 
     /**
-     * @Route("/parties/{slug}", name="joinparty")
-     * @Method({"GET","POST"})
+     * @Route("/{_locale}/parties/{slug}", name="joinparty")
+     * @Method({"GET", "POST"})
      */
     public function joinAction(Request $request, Party $party, $slug)
     {

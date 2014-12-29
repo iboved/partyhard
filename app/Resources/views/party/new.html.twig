@@ -6,7 +6,7 @@
     {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    <legend>New user</legend>
+    <legend>{{ 'party.new_user'|trans }}</legend>
     <div class="active">
         {{ form_label(form.name) }}
         {{ form_errors(form.name) }}
@@ -31,7 +31,7 @@
         {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
     </div>
     <br/>
-    <legend>Create party</legend>
+    <legend>{{ 'navbar.new_party'|trans }}</legend>
     <div class="active">
         {{ form_label(form.party.title) }}
         {{ form_errors(form.party.title) }}

@@ -22,20 +22,20 @@ class AddGenderFieldSubscriber implements EventSubscriberInterface
             $form
                 ->add('gender', 'choice', array(
                     'choices' => array(
-                        'male' => 'Male')
+                        'male' => 'male')
                 ));
         } elseif($party->getGender() == 'female') {
             $form
                 ->add('gender', 'choice', array(
                     'choices' => array(
-                        'female' => 'Female')
+                        'female' => 'female')
                 ));
         } else {
             $form
                 ->add('gender', 'choice', array(
                     'choices' => array(
-                        'male' => 'Male',
-                        'female' => 'Female')
+                        'male' => 'male',
+                        'female' => 'female')
                 ));
         }
     }
