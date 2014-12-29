@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}
-    {{ party.title }}
-{% endblock %}
+{% block title %} {{ 'title.join_party'|trans }} {{ party.title }} {% endblock %}
 
 {% block container %}
     <div class="row row-offcanvas row-offcanvas-right">
@@ -14,19 +12,19 @@
                         <div class="panel-body">
                             <h2> {{ party.title }} </h2>
                             <p> {{ party.description }} </p>
-                            <p>City: {{ party.city }} </p>
-                            <p>Needed gender: {{ party.gender }} </p>
-                            <p>Members: {{ party.users|length }}/{{ party.members }} </p>
-                            <p>Donate: {{ party.donate|price }} </p>
-                            <p>Created: {{ party.createdAt|date }} </p>
+                            <p>{{ 'party.city'|trans }}: {{ party.city }} </p>
+                            <p>{{ 'party.needed_gender'|trans }}: {{ party.gender }} </p>
+                            <p>{{ 'party.members'|trans }}: {{ party.users|length }}/{{ party.members }} </p>
+                            <p>{{ 'party.donate'|trans }}: {{ party.donate|price }} </p>
+                            <p>{{ 'party.created_at'|trans }}: {{ party.createdAt|date }} </p>
                             <hr>
                             <table class="table table-hover">
-                                <caption>Members of party</caption>
+                                <caption>{{ 'party.members_of_party'|trans }}</caption>
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Gender</th>
+                                    <th>{{ 'party.member_name'|trans }}</th>
+                                    <th>{{ 'party.member_gender'|trans }}</th>
                                     <th>Email</th>
                                 </tr>
                                 </thead>
@@ -52,7 +50,7 @@
                     {% endif %}
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h2 align="center"> Join party </h2>
+                            <h2 align="center"> {{ 'party.join_party'|trans }} </h2>
                             {{ form_start(form) }}
                             {{ form_errors(form) }}
 

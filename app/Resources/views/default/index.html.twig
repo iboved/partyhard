@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PartyHard{% endblock %}
+{% block title %} {{ 'title.home_page'|trans }} {% endblock %}
 
 {% block container %}
     <div class="row row-offcanvas row-offcanvas-right">
@@ -10,18 +10,17 @@
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
             </p>
             <div class="jumbotron">
-                <h2>Welcome!</h2>
-                <p>This service helps you find a party for the New Year. You can create your own party and share it with people all around the world.</p>
+                <p>{{ 'another.jumbotron'|trans }}</p>
             </div>
             <div class="row">
                 {% for party in parties %}
                     <div class="col-xs-6 col-lg-4">
                         <h2> {{ party.title }} </h2>
                         <p> {{ party.description|slice(0, 195) }} </p>
-                        <p>City: <a href="{{ path('parties') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
-                        <p>Gender: {{ party.gender }} </p>
-                        <p>Members: {{ party.users|length }}/{{ party.members }} </p>
-                        <p><a class="btn btn-default" href="{{ path('joinparty', {'slug' : party.slug}) }}" role="button">View details &raquo;</a></p>
+                        <p>{{ 'party.city'|trans }}: <a href="{{ path('parties') }}?city={{ party.city|lower }}">{{ party.city }}</a></p>
+                        <p>{{ 'party.needed_gender'|trans }}: {{ party.gender }} </p>
+                        <p>{{ 'party.members'|trans }}: {{ party.users|length }}/{{ party.members }} </p>
+                        <p><a class="btn btn-default" href="{{ path('joinparty', {'slug' : party.slug}) }}" role="button">{{ 'party.view_details'|trans }} &raquo;</a></p>
                     </div><!--/.col-xs-6 col-lg-4-->
                 {% endfor %}
             </div><!--/row-->

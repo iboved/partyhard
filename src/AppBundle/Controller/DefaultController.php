@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{_locale}", name="homepage", defaults = {"_lacale" = "en"}, requirements = {"_locale" = "en|ru"})
      * @Method({"GET"})
      */
     public function indexAction()
