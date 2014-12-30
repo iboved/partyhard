@@ -8,6 +8,7 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Party;
 use AppBundle\Form\Type\AddUserType;
 use AppBundle\Form\Type\JoinPartyType;
+use AppBundle\Form\Type\EditPartyType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
@@ -89,6 +90,35 @@ class PartyController extends Controller
         }
 
         return $this->render('party/join.html.twig', array(
+            'party' => $party,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/parties/{slug}/edit", name="editparty")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, Party $party)
+    {
+        if($party->getActive() == 'false') {
+            throw $this->createNotFoundException(
+                'You cannot edit party ' . $party->getTitle() . ' because it is not active'
+            );
+        }
+
+        $form = $this->createForm(new EditPartyType(), $party);
+
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+
+        return $this->render('party/edit.html.twig', array(
             'party' => $party,
             'form' => $form->createView(),
         ));

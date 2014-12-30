@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ 'title.new_party'|trans }} {% endblock %}
+
+{% block container %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <legend>{{ 'navbar.new_party'|trans }}</legend>
+    <div class="active">
+        {{ form_label(form.title) }}
+        {{ form_errors(form.title) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.description) }}
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.city) }}
+        {{ form_errors(form.city) }}
+        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.gender) }}
+        {{ form_errors(form.gender) }}
+        {{ form_widget(form.gender, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.members) }}
+        {{ form_errors(form.members) }}
+        {{ form_widget(form.members, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_label(form.donate) }}
+        {{ form_errors(form.donate) }}
+        {{ form_widget(form.donate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <br/>
+    <div class="active">
+        {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

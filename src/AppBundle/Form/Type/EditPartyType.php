@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\Range;
 
-class AddPartyType extends AbstractType
+class EditPartyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -17,13 +17,13 @@ class AddPartyType extends AbstractType
             ->add('city')
             ->add('gender', 'choice', array(
                 'choices' => array(
-                    'any' => 'any',
-                    'male' => 'male',
-                    'female' => 'female'),
+                    $options['data']->getGender() => $options['data']->getGender()),
+                'disabled' => true,
                 'label' => 'Desired sex'
             ))
-            ->add('members', null, array('constraints' => array(new Range(array('min' => 2)))))
-            ->add('donate', null, array('constraints' => array(new Range(array('min' => 0)))));
+            ->add('members', null, array('constraints' => array(new Range(array('min' => $options['data']->getUsers()->count()+1)))))
+            ->add('donate', null, array('constraints' => array(new Range(array('min' => 0)))))
+            ->add('send', 'submit');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -35,6 +35,6 @@ class AddPartyType extends AbstractType
 
     public function getName()
     {
-        return 'addParty';
+        return 'editParty';
     }
 }
