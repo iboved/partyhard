@@ -1,0 +1,42 @@
+navbar:
+    new_party: Новая вечеринка
+    active_party: Активные
+    not_active_party: Неактивные
+    languages: Языки
+
+title:
+    home_page: Добро пожаловать | PartyHard
+    new_party: Новая вечеринка
+    parties_city: Вечеринки в городе
+    active_parties: Активные вечеринки
+    not_active_parties: Неактивные вечеринки
+    join_party: Присоединится к
+
+party:
+    city: Город
+    desired_sex: Желательный пол
+    members: Участники
+    donate: Вклад
+    created_at: Дата создания
+    members_of_party: Участники вечеринки
+    member_name: Имя
+    member_gender: Пол
+    join_party: Присоединиться
+    view_details: Подробнее
+    new_user: Новый пользователь
+
+jumbotron: Этот сервис поможет Вам найти вечерику на Новый Год. Вы можете создать свою вечеринку и поделиться ею со всем миром.
+
+Name: Имя
+Gender: Пол
+Phone: Телефон
+Title: Название
+Description: Описание
+City: Город
+Desired sex: Желательный пол
+Members: Участники
+Donate: Вклад
+Send: Отправить
+male: мужской
+female: женский
+any: любой

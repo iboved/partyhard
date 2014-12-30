@@ -1,0 +1,42 @@
+navbar:
+    new_party: New party
+    active_party: Active
+    not_active_party: Not active
+    languages: Languages
+
+title:
+    home_page: Welcome | PartyHard
+    new_party: New party
+    parties_city: Parties in
+    active_parties: Active paries
+    not_active_parties: Not active parties
+    join_party: Join to
+
+party:
+    city: City
+    desired_sex: Desired sex
+    members: Members
+    donate: Donate
+    created_at: Created at
+    members_of_party: Members of party
+    member_name: Name
+    member_gender: Gender
+    join_party: Join party
+    view_details: View details
+    new_user: New user
+
+jumbotron: This service helps you find a party for the New Year. You can create your own party and share it with people all around the world.
+
+Name: Name
+Gender: Gender
+Phone: Phone
+Title: Title
+Description: Description
+City: City
+Desired sex: Desired sex
+Members: Members
+Donate: Donate
+Send: Send
+male: male
+female: female
+any: any

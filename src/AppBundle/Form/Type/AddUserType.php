@@ -15,8 +15,8 @@ class AddUserType extends AbstractType
             ->add('name')
             ->add('gender', 'choice', array(
                 'choices' => array(
-                    'male' => 'Male',
-                    'female' => 'Female')
+                    'male' => 'male',
+                    'female' => 'female')
             ))
             ->add('email','email')
             ->add('phone')

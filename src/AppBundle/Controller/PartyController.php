@@ -66,7 +66,7 @@ class PartyController extends Controller
 
     /**
      * @Route("/parties/{slug}", name="joinparty")
-     * @Method({"GET","POST"})
+     * @Method({"GET", "POST"})
      */
     public function joinAction(Request $request, Party $party, $slug)
     {
